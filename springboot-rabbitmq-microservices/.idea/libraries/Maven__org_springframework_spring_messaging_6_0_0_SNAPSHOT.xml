@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework:spring-messaging:6.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/6.0.0-SNAPSHOT/spring-messaging-6.0.0-20220701.085807-562.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/6.0.0-SNAPSHOT/spring-messaging-6.0.0-20220701.085807-562-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/6.0.0-SNAPSHOT/spring-messaging-6.0.0-20220701.085807-562-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

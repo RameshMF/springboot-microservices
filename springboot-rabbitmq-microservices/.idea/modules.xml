@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/Desktop/email-service/email-service.iml" filepath="$USER_HOME$/Desktop/email-service/email-service.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/order-service/order-service.iml" filepath="$USER_HOME$/Desktop/order-service/order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-rabbitmq-microservices.iml" filepath="$PROJECT_DIR$/springboot-rabbitmq-microservices.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/stock-service/stock-service.iml" filepath="$USER_HOME$/Desktop/stock-service/stock-service.iml" />
+    </modules>
+  </component>
+</project>

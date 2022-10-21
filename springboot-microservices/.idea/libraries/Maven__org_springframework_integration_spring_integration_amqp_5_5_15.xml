@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.integration:spring-integration-amqp:5.5.15">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-amqp/5.5.15/spring-integration-amqp-5.5.15.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-amqp/5.5.15/spring-integration-amqp-5.5.15-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-amqp/5.5.15/spring-integration-amqp-5.5.15-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
