@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient("DEPARTMENT-SERVICE")
+@FeignClient(name = "DEPARTMENT-SERVICE")
 public interface APIClient {
     // Build get department rest api
     @GetMapping("api/departments/{department-code}")
