@@ -1,0 +1,150 @@
+services:
+  service-registry:
+    build:
+      context: ./service-registry
+      dockerfile: Dockerfile
+    image: service-registry
+    container_name: service-registry
+    ports:
+      - "8761:8761"
+    networks:
+      - microservices-net
+
+  config-server:
+    build:
+      context: ./config-server
+      dockerfile: Dockerfile
+    image: config-server
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - service-registry
+    networks:
+      - microservices-net
+
+  department-mysql:
+    image: mysql:8.4
+    container_name: department-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Mysql@123
+      MYSQL_DATABASE: department_db
+    volumes:
+      - department_mysql_data:/var/lib/mysql
+    networks:
+      - microservices-net
+
+  employee-mysql:
+    image: mysql:8.4
+    container_name: employee-mysql
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Mysql@123
+      MYSQL_DATABASE: employee_db
+    volumes:
+      - employee_mysql_data:/var/lib/mysql
+    networks:
+      - microservices-net
+
+  organization-mysql:
+    image: mysql:8.4
+    container_name: organization-mysql
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Mysql@123
+      MYSQL_DATABASE: organization_db
+    volumes:
+      - organization_mysql_data:/var/lib/mysql
+    networks:
+      - microservices-net
+
+  department-service:
+    build:
+      context: ./department-service
+      dockerfile: Dockerfile
+    image: department-service
+    container_name: department-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - config-server
+      - department-mysql
+      - service-registry
+    networks:
+      - microservices-net
+    restart: on-failure
+
+  organization-service:
+    build:
+      context: ./organization-service
+      dockerfile: Dockerfile
+    image: organization-service
+    container_name: organization-service
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - config-server
+      - organization-mysql
+      - service-registry
+    networks:
+      - microservices-net
+    restart: on-failure
+
+  employee-service:
+    build:
+      context: ./employee-service
+      dockerfile: Dockerfile
+    image: employee-service
+    container_name: employee-service
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - config-server
+      - employee-mysql
+      - service-registry
+      - department-service
+      - organization-service
+    networks:
+      - microservices-net
+    restart: on-failure
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    image: api-gateway
+    container_name: api-gateway
+    ports:
+      - "9191:9191"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - config-server
+      - service-registry
+      - department-service
+      - organization-service
+      - employee-service
+    networks:
+      - microservices-net
+    restart: on-failure
+
+networks:
+  microservices-net:
+    driver: bridge
+
+volumes:
+  department_mysql_data:
+  employee_mysql_data:
+  organization_mysql_data:
