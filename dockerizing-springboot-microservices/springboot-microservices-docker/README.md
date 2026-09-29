@@ -1,20 +1,5 @@
 # Employee Management Microservices Project
 
-This project is converted from the College Management Microservices project.
-
-## Converted services
-
-| New term | Old term |
-|---|---|
-| Employee Service | Student Service |
-| Department Service | Course Service |
-| Organization Service | College Service |
-| Employee | Student |
-| Department | Course |
-| Organization | College |
-| departmentCode | courseCode |
-| organizationCode | collegeCode |
-
 ## Services and ports
 
 | Service | Port |
